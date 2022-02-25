@@ -2,4 +2,26 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.all
   end
+
+  def new
+    @task = Task.new
+  end
+
+  def create
+    @task = Task.new(task_params)
+    if @task.save
+      #セーブ後indexページへ
+      redirect_to tasks_path
+    else
+      #できなかったらnewページに留まる
+      render 'new'
+    end
+  end
+
+  private
+  def task_params
+　　#strong parameter でTaskモデルを作成した際にできたtaskテーブルにtitle(やること)とbody(詳細)を保存。
+    params.require(:task).permit(:title, :body)
+  end
+
 end
