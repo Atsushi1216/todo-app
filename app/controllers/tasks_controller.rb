@@ -10,11 +10,9 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      #セーブ後indexページへ
-      redirect_to tasks_path
+      redirect_to tasks_path #セーブ後indexページへ
     else
-      #できなかったらnewページに留まる
-      render 'new'
+      render :new #できなかったらnewページに留まる
     end
   end
 
@@ -25,11 +23,9 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
-      #updateできたらindexページへ
-      redirect_to tasks_path
+      redirect_to tasks_path #updateできたらindexページへ
     else
-      #できなかったらeditページのまま
-      render 'edit'
+      render :edit #できなかったらeditページのまま
     end
   end
 
@@ -41,8 +37,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-　　#strong parameter でTaskモデルを作成した際にできたtaskテーブルにtitle(やること)とbody(詳細)を保存。
-    params.require(:task).permit(:title, :body)
+    params.require(:task).permit(:title, :body) #strong parameterでTaskモデルを作成した際にできたtaskテーブルにtitle(やること)とbody(詳細)を保存。
   end
 
 end

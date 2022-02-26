@@ -2,10 +2,10 @@
 
 <%= link_to '一覧へ', tasks_path %>
 
-<%= form_with model: @task do |f| %>
+<%= form_with model: @task, local:true do |f| %>
 <div class="field">
   <%= f.label :やること %><br>
-  <%= f.textarea_field :title %>
+  <%= f.text_field :title %>
 </div>
 <div class="field">
   <%= f.label :詳細 %><br>
