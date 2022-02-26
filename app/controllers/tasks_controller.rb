@@ -18,6 +18,21 @@ class TasksController < ApplicationController
     end
   end
 
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      #updateできたらindexページへ
+      redirect_to tasks_path
+    else
+      #できなかったらeditページのまま
+      render 'edit'
+    end
+  end
+
   private
   def task_params
 　　#strong parameter でTaskモデルを作成した際にできたtaskテーブルにtitle(やること)とbody(詳細)を保存。
