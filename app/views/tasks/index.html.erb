@@ -15,6 +15,7 @@
     <tr>
       <td><%= task.title %></td>
       <td><%= task.body %></td>
+      <td><%= link_to '編集', edit_task_path(task) %></td>
     </tr>
     <% end %>
   </tbody>
