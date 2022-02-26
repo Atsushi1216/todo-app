@@ -33,6 +33,12 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to tasks_path
+  end
+
   private
   def task_params
 　　#strong parameter でTaskモデルを作成した際にできたtaskテーブルにtitle(やること)とbody(詳細)を保存。
