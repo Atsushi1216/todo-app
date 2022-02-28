@@ -12,7 +12,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to tasks_path #セーブ後indexページへ
     else
-      render :new #できなかったらnewページに留まる
+      render :new #条件分岐もしできなかったらnewページに留まる
     end
   end
 
@@ -25,7 +25,7 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to tasks_path #updateできたらindexページへ
     else
-      render :edit #できなかったらeditページのまま
+      render :edit #条件分岐もしできなかったらeditページのまま
     end
   end
 
