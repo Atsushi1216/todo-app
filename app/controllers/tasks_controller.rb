@@ -37,7 +37,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:title, :body) #strong parameterでTaskモデルを作成した際にできたtaskテーブルにtitle(やること)とbody(詳細)を保存。
+    params.require(:task).permit(:title, :body) #strong parameterでTaskモデルを作成した際にできたtaskテーブルにtitle(Todo)とbody(詳細)を保存。
   end
 
 end
