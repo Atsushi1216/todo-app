@@ -1,20 +1,22 @@
-<h1>To do 新規作成</h1>
-<br>
+<div class='justfy-content'>
+  <h1>To do 新規作成</h1>
+  <br>
 
 
-<%= form_with model: @task, local:true do |f| %>
-<div class="field">
-  <%= f.label :やること %><br>
-  <%= f.text_field :title %>
+  <%= form_with model: @task, local:true do |f| %>
+  <div class="field">
+    <%= f.label :やること %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :詳細 %><br>
+    <%= f.text_field :body %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+  <br>
+  <%= link_to '一覧に戻る', tasks_path %>
 </div>
-<div class="field">
-  <%= f.label :詳細 %><br>
-  <%= f.text_field :body %>
-</div>
-<br>
-<div class="actions">
-  <%= f.submit %>
-</div>
-<% end %>
-<br>
-<%= link_to '一覧に戻る', tasks_path %>
