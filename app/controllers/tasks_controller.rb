@@ -10,6 +10,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    # task_indexにユーザー名を表示するため、紐付ける
     @task.user = current_user
     if @task.save
       redirect_to tasks_path #セーブ後indexページへ
@@ -19,6 +20,7 @@ class TasksController < ApplicationController
   end
 
   def edit
+    # paramsidをtaskに持ってくる
     @task = Task.find(params[:id])
   end
 
